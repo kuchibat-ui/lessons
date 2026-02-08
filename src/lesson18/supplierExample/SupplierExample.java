@@ -1,0 +1,27 @@
+package lesson18.supplierExample;
+
+import java.util.Random;
+import java.util.function.Supplier;
+
+public class SupplierExample {
+    public static void main(String[] args) {
+        System.out.println("Сгенерируем 10 случайных чисел, от 1 до 999, только четные");
+        for (int index = 0; index < 10; index++) {
+            int number = new Random().nextInt(999);
+            if (number % 2 == 0) {
+                System.out.println(number);
+            } else {
+                index--;
+            }
+        }
+
+        System.out.println("Сгенерируем 10 случайных чисел, от 1 до 999, только четные c использованием supplier");
+        RandomEvenNumbersGenerator randomNumbersGenerator = new RandomEvenNumbersGenerator();
+        for (int index = 0; index < 10; index++) {
+            System.out.println(randomNumbersGenerator.get());
+        }
+
+        Supplier<Integer> example = () -> new Random().nextInt(999);
+
+    }
+}
