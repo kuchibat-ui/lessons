@@ -28,10 +28,17 @@ public class MainShop {
         List<Double> total = shops.stream()
                 .map(Shop::getIncome)
                 .collect(Collectors.toList());
-       Double totalIncome =  total.stream()
+        Double totalIncome = total.stream()
                 .mapToDouble(i -> i)
                 .sum();
         System.out.println("общий доход по всем магазинам " + totalIncome);
+
+        System.out.println("отсортировать магазины по доходности от большего к меньшему");
+        List<Shop> shopIncome = shops.stream()
+                .sorted()
+                .collect(Collectors.toList());
+        shopIncome.forEach(System.out::println);
+//        System.out.println(shopIncome);
 
 
 

@@ -1,8 +1,9 @@
 package lesson22.shops;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Shop {
+public class Shop implements Comparable<Shop> {
     private String name;
     private double income;
     private double area;
@@ -37,6 +38,8 @@ public class Shop {
         this.name = name;
     }
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -59,5 +62,14 @@ public class Shop {
         return Objects.hash(name, income, area);
 
 
+    }
+
+
+    @Override
+    public int compareTo(Shop o) {
+        if (this.income != o.income) {
+        return (int) (o.income-this.income );
+    }
+        return 0;
     }
 }

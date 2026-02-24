@@ -51,8 +51,7 @@ public class StreamExample {
                 "собрать их в отдельлную переменную списка" +
                 "вывести данный цикл в консоль с помощью метод forEach и ссылки на метод\n");
 
-
-        List<String> names = students.stream()                  // переменная names и запускаем стрим
+        List<String> names = students.stream()                  // переменная списка names и запускаем стрим
                 .map(Student::getName)                          //  map по каждому Student получаем name
                 .distinct()                                     // удаляем дубликаты
                 .collect(Collectors.toList());                  // собирае элементы и преобразуем в Лист и закрываем стрим
